@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {selectSong} from './actions/select-song';
-import {songsReducer} from './reducers/songs-reducer.js';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 
-const App = () => {
-		return(<div>HAAALO :) </div>);
-};
+import reducers from './reducers/songs-reducer'; //this is reducers
+import App from './app';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(
+	<Provider store={createStore(reducers)}><App /></Provider>, 
+	document.getElementById('root')
+);
